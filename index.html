@@ -2892,7 +2892,8 @@ html:not(.js) .an-tools, html:not(.js) .an-pick, html:not(.js) .an-self{display:
     if (scroll) {
       // le navigateur applique aussi son propre saut d'ancre : on repasse après
       var go = function () {
-        if (el === sec) window.scrollTo(0, 0);
+        // une fiche seule à l'écran : on remonte en haut ; en mode « tout afficher », on va à la section
+        if (el === sec && !allMode) window.scrollTo(0, 0);
         else el.scrollIntoView({ block: "start", behavior: "auto" });
       };
       go();
